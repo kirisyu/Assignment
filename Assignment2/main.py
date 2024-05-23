@@ -51,27 +51,23 @@ class MultiHeadAttention:
 
         return out
 
-# Example usage
+# 예시
 d_k = 64
 attention = ScaledDotProductAttention(d_k)
 
-# Random tensors representing Q, K, and V
-Q = torch.rand(10, 20, d_k)  # (batch_size, seq_length, d_k)
+Q = torch.rand(10, 20, d_k)
 K = torch.rand(10, 20, d_k)
 V = torch.rand(10, 20, d_k)
 
 output, attention_weights = attention.forward(Q, K, V)
 
-#print("Output:", output)
 print("Attention Weights:", attention_weights)
 
-# Example usage
 d_model = 128
 num_heads = 8
 multi_head_attention = MultiHeadAttention(d_model, num_heads)
 
-# Random tensors representing the input sequence (patch embeddings)
-patch_embeddings = torch.rand(10, 16, d_model)  # (batch_size, num_patches, d_model)
+patch_embeddings = torch.rand(10, 16, d_model) 
 
 output = multi_head_attention.forward(patch_embeddings, patch_embeddings, patch_embeddings)
 
